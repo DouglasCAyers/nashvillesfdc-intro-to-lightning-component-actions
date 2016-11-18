@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <fullName>Create_Case_URL</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Case (URL)</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/500/e?cas11=Web&amp;cas3={!Contact.Name}&amp;cas3_lkid={!Contact.Id}&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cas14=New+Case+From+URL+Button&amp;cancelURL={!Contact.Id}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,33 @@
+<aura:component controller="CreateCaseFromContactController"
+                implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+	
+    <aura:attribute name="recordId" type="ID"/>
+    
+    <aura:attribute name="case" type="Case"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:input aura:id="caseSubject"
+                     name="caseSubjectInput"
+                     label="Subject"
+                     value="{!v.case.Subject}"
+                     required="true"/>
+    
+    <lightning:select aura:id="caseOrigin"
+                      name="caseOriginSelect"
+                      label="Origin"
+                      value="{!v.case.Origin}"
+                      required="true">
+
+        <option value="Web">Web</option>
+        <option value="Email">Email</option>
+        <option value="Phone">Phone</option>
+
+    </lightning:select>
+    
+    <div class="slds-grid slds-grid--align-end">
+    	<lightning:button label="Cancel" name="cancelBtn" onclick="{!c.handleCancel}" variant="neutral"/>
+    	<lightning:button label='Save' name="saveBtn" onclick="{!c.handleSave}" variant="brand"/>
+	</div>
+    
+</aura:component>

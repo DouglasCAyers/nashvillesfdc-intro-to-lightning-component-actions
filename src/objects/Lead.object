@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <fullName>Call_Apex_JS</fullName>
+        <availability>online</availability>
+        <description>https://developer.salesforce.com/docs/atlas.en-us.workbook.meta/workbook/button_1.htm</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Call Apex (JS)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/38.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/38.0/apex.js&quot;)}
+
+var result = sforce.apex.execute(
+  &apos;CallApexController&apos;,     // apex class
+  &apos;sayGreeting&apos;,            // method name
+  {
+    name: &apos;{!Lead.Name}&apos;    // arguments
+  }
+);
+
+alert( result );
+
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Toggle_Case_JS</fullName>
+        <availability>online</availability>
+        <description>https://developer.salesforce.com/docs/atlas.en-us.workbook.meta/workbook/button_1.htm</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Toggle Case (JS)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/38.0/connection.js&quot;)}
+
+var recordIds = {!GETRECORDIDS($ObjectType.Lead)};
+
+var query = &quot;SELECT Id, FirstName, LastName FROM Lead WHERE Id IN &quot; +
+            &quot;(&apos;&quot; + recordIds.join(&quot;&apos;,&apos;&quot;) + &quot;&apos;)&quot;;
+
+var queryResult = sforce.connection.query( query );
+
+var records = queryResult.getArray(&apos;records&apos;);
+
+for ( var i = 0; i &lt; records.length; i++ ) {
+
+  var lowerFirstName = records[i].FirstName.toLowerCase();
+
+  if ( records[i].FirstName == lowerFirstName ) {
+    records[i].FirstName = records[i].FirstName.toUpperCase();
+    records[i].LastName = records[i].LastName.toUpperCase();
+  } else {
+    records[i].FirstName = records[i].FirstName.toLowerCase();
+    records[i].LastName = records[i].LastName.toLowerCase();
+  }
+
+}
+
+var updateResults = sforce.connection.update( records );
+
+location.reload( true );</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Toggle_Case_VF</fullName>
+        <availability>online</availability>
+        <description>Toggles the first and last names between UPPERCASE and lowercase.</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Toggle Case (VF)</masterLabel>
+        <openType>sidebar</openType>
+        <page>LeadActionPage</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>

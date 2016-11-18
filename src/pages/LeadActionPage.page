@@ -1,0 +1,8 @@
+<apex:page standardController="Lead"
+           extensions="LeadActionController"
+           recordSetVar="records"
+           action="{!toggleCase}">
+    
+    <apex:pageMessages />
+    
+</apex:page>

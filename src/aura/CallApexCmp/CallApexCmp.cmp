@@ -1,0 +1,8 @@
+<aura:component controller="CallApexController"
+                implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+	
+    <aura:attribute name="recordId" type="ID" description="ID of a Lead record"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+</aura:component>

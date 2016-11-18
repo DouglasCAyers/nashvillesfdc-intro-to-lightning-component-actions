@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>CallApexCmp</members>
+        <members>CreateCaseFromContactCmp</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Contact_Record_Page</members>
+        <members>Lead_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Contact-Contact Layout</members>
+        <members>Lead-Lead Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Contact.Create_Case_Action</members>
+        <members>Contact.Create_Case_LC</members>
+        <members>Lead.Call_Apex_LC</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Contact.Create_Case_URL</members>
+        <members>Lead.Call_Apex_JS</members>
+        <members>Lead.Toggle_Case_JS</members>
+        <members>Lead.Toggle_Case_VF</members>
+        <name>WebLink</name>
+    </types>
+    <version>38.0</version>
+</Package>
